@@ -107,7 +107,7 @@ CssHack.prototype = {
    * style reflects to DOM
    * @param  {array} nodes
    */
-  changeStyleByNodes: function(nodes) {
+  reflectByNodes: function(nodes) {
     console.log(nodes);
     var l = nodes.length;
     var className = this._className;

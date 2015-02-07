@@ -38,7 +38,7 @@
   function onClick(event) {
     // console.log(event);
     var nodes = document.querySelectorAll('.test-1');
-    BoxStyle.changeStyleByNodes(nodes);
+    BoxStyle.reflectByNodes(nodes);
   }
   function resetAll() {
     BoxStyle.resetAll();
@@ -75,7 +75,7 @@ HoverStyle.setProps(
   ]);
 function hoverChange(event) {
   var nodes = document.querySelectorAll('.test-2');
-  HoverStyle.changeStyleByNodes(nodes)
+  HoverStyle.reflectByNodes(nodes)
 }
 function hoverReset(event) {
   HoverStyle.resetAll();

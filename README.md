@@ -13,7 +13,7 @@ Css.setProp(param);
 Css.setProps([param, param, ...]);
 
 // 3. Reflect to Css
-Css.reflect();
+Css.reflectByNodes();
 
 // 4. Reset Changes
 Css.resetAll();
