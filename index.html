@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Tool Box</title>
+  <script src="./src/Style.class.js"></script>
+  <style>
+  .test-1 {
+    color: #FFF;
+    background-color: #000;
+  }
+  .test-2 {
+    color: #FFF;
+    background-color: #000;
+  }
+  .test-2:hover {
+    color: #000;
+    background-color: #FFF;
+  }
+  </style>
+</head>
+<body>
+
+<p>
+  <button onclick="onClick(event)">change</button>
+  <button onclick="resetAll(event)">reset</button>
+</p>
+
+<div class="test-1"> Text and Background Changes </div>
+<div class="test-1"> Text and Background Changes </div>
+<div class="test-1"> Text and Background Changes </div>
+<div class="test-1"> Text and Background Changes </div>
+
+<script>
+  var BoxStyle = new CssHack(true);
+  BoxStyle.setProp({name: 'color', value: '#FFFFFF'});
+  BoxStyle.setProp({name: 'background-color', value: '#FF0'});
+  function onClick(event) {
+    // console.log(event);
+    var nodes = document.querySelectorAll('.test-1');
+    BoxStyle.changeStyleByNodes(nodes);
+  }
+  function resetAll() {
+    BoxStyle.resetAll();
+  }
+</script>
+
+<p>
+  <button onclick="hoverChange(event)">change</button>
+  <button onclick="hoverReset(event)">reset</button>
+</p>
+
+
+<div class="test-2">
+  <div> Change Hover color </div>
+  <div> Change Hover color </div>
+  <div> Change Hover color </div>
+  <div> Change Hover color </div>
+</div>
+
+<script>
+var HoverStyle = new CssHack();
+HoverStyle.setProps(
+  [
+    {
+      pseudoType: 'hover',
+      name: 'color',
+      value: '#F00'
+    },
+    {
+      pseudoType: 'hover',
+      name: 'background-color',
+      value: '#0F0'
+    }
+  ]);
+function hoverChange(event) {
+  var nodes = document.querySelectorAll('.test-2');
+  HoverStyle.changeStyleByNodes(nodes)
+}
+function hoverReset(event) {
+  HoverStyle.resetAll();
+}
+</script>
+
+</body>
+</html>
