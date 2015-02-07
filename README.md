@@ -13,7 +13,8 @@ Css.setProp(param);
 Css.setProps([param, param, ...]);
 
 // 3. Reflect to Css
-Css.reflectByNodes();
+var nodes = document.querySelectorAll('.hoge');
+Css.reflectByNodes(nodes);
 
 // 4. Reset Changes
 Css.resetAll();
