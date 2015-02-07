@@ -1,6 +1,10 @@
 CSS Hacker
 ----
 
+CSS Hack can change element's style.  
+And it's able to change pseudo-element like ':after', ':before' and ':hover'.  
+It's easy to set up your own style, and easy to reflect and reset the style to element.
+
 # USAGE
 ```javascript
 // 1. Create Instance
