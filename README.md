@@ -2,7 +2,7 @@ CSS Hacker
 ----
 
 # USAGE
-```
+```javascript
 // 1. Create Instance
 var Css = new CssHack();
 // if you need '!important' to all in style try this
@@ -22,7 +22,7 @@ Css.resetAll();
 
 `param` is css extended object
 
-```
+```javascript
 param = {
   name      : '', // CSS Property Name 
   value     : '', // CSS Property Value
