@@ -3,20 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Tool Box</title>
-  <script src="./src/Style.class.js"></script>
+  <script src="./src/css-hack.js"></script>
   <style>
-  .test-1 {
-    color: #FFF;
-    background-color: #000;
-  }
-  .test-2 {
-    color: #FFF;
-    background-color: #000;
-  }
-  .test-2:hover {
-    color: #000;
-    background-color: #FFF;
-  }
+    .test-1 {
+      color: #FFF;
+      background-color: #000;
+    }
+  </style>
+  <style>
+    .test-2 {
+      color: #FFF;
+      background-color: #000;
+    }
+    .test-2:hover {
+      color: #000;
+      background-color: #FFF;
+    }
+  </style>
+  <style>
+    .test-3 {
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+      color: #FFF;
+      position: relative;
+    }
+    .test-3:after {
+      content: '';
+      height: 1px;
+      background-color: #F00;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+    }
   </style>
 </head>
 <body>
@@ -50,7 +70,6 @@
   <button onclick="hoverReset(event)">reset</button>
 </p>
 
-
 <div class="test-2">
   <div> Change Hover color </div>
   <div> Change Hover color </div>
@@ -79,6 +98,45 @@ function hoverChange(event) {
 }
 function hoverReset(event) {
   HoverStyle.resetAll();
+}
+</script>
+
+<p>
+  <button onclick="afterChange(event)">change</button>
+  <button onclick="afterReset(event)">reset</button>
+</p>
+
+<div class="test-3">
+  Change After Style
+</div>
+
+<script>
+var AfterStyle = new CssHack();
+AfterStyle.setProps([
+  {
+    name: 'background-color',
+    value: '#0F0',
+    pseudoType: 'after'
+  },
+  {
+    name: 'top',
+    value: '0',
+    pseudoType: 'after'
+  },
+  {
+    name: 'height',
+    value: 'auto',
+    pseudoType: 'after'
+  }
+]);
+
+
+function afterChange(event) {
+  var nodes = document.querySelectorAll('.test-3');
+  AfterStyle.reflectByNodes(nodes);
+}
+function afterReset() {
+  AfterStyle.resetAll();
 }
 </script>
 

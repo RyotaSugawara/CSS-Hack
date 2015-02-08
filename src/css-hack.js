@@ -19,7 +19,6 @@ CssHack.prototype = {
     }
     var cssString = '';
     for (var key in _props) {
-
       var _prop = _props[key];
       cssString += '.';
       cssString += this._className;
@@ -74,23 +73,26 @@ CssHack.prototype = {
     (scope._isImportant) && (prop['value'] += ' !important')
     prop['pseudoType']  = _pseudoType;
     prop['css']   = prop['name'] + ':' + prop['value'] + ';';
-    // console.log('add prop', prop);
 
     // if has no property
-    (!scope._props[_pseudoType]) && (scope._props[_pseudoType] = []);
+    (!(_pseudoType in scope._props)) && (scope._props[_pseudoType] = []);
 
     if (scope._props[_pseudoType].length < 1) {
       scope._props[_pseudoType].push(prop);
     } else {
+      var hasProp = false;
       scope._props[_pseudoType].forEach(function(item, index) {
         if (item.name === prop.name) {
-          scope._props[_pseudoType][index] = prop;
-        } else {
-          scope._props[_pseudoType].push(prop);
+          hasProp = true;
         }
       });
+      if (hasProp) {
+        scope._props[_pseudoType][index] = prop;
+      } else {
+        scope._props[_pseudoType].push(prop);
+      }
     }
-    
+
     this._props = scope._props;
   },
   setProps: function(arr) {
@@ -108,7 +110,6 @@ CssHack.prototype = {
    * @param  {array} nodes
    */
   reflectByNodes: function(nodes) {
-    console.log(nodes);
     var l = nodes.length;
     var className = this._className;
     if (l < 1) {
@@ -141,4 +142,3 @@ CssHack.prototype = {
     }
   }
 };
-
